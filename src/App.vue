@@ -1,23 +1,24 @@
 <template>
   <div id="app">
     <Nav/>
-    <Todo msg="Welcome to Your Vue.js App"/>
-    <p>
-      <router-link to="/">Go to Foo</router-link>
-      <router-link to="/about">Go to Bar</router-link>
-    </p>
-    <router-view />
+    <div class="container">
+      <div class="main">
+    
+        <router-view/>
+      </div>
+      <Side/>
+    </div>
   </div>
 </template>
 
 <script>
-import Todo from "./components/Todo.vue";
+import Side from "./components/Side.vue";
 import Nav from "./components/Nav.vue";
 
 export default {
   name: "app",
   components: {
-    Todo,
+    Side,
     Nav
   }
 };
@@ -32,4 +33,14 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 } */
+.container {
+  display: flex;
+}
+.main {
+  height: 1000px;
+  flex-grow: 1;
+}
+Side {
+  background: red;
+}
 </style>
