@@ -18,6 +18,13 @@ export default {
     doClick: function() {
       this.num++;
     }
+  },
+    computed: {
+    count () {
+       let c = this.$store.state.count
+        alert(c);
+       return c;
+    }
   }
 };
 </script>
