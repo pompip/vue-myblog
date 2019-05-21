@@ -1,19 +1,49 @@
 <template>
-    <router-link to="/detail">
-        <h3>title</h3>
-        <span >info</span>
-        <div> {{item}} </div>
-    </router-link>
+<router-link :to="'/detail/'+item.id">
+    <div class="item">
+      <div class="title">{{item.title}}</div>
+      <TimeParser :time="item.createTimestamp" />
+      <div class="content" v-html="item.content"/>
+    </div>
+  </router-link>
 </template>
 <script>
+import TimeParser from './TimeParser'
 export default {
-    name:'HomeItem',
-    props :["item"],
-    methods:{
-        doClick:function (){
-            alert(this.item);
-        }
+  components:{TimeParser},
+  computed: {
+    time() {
+      return this.item.createTimestamp;
+    },
+  },
+  props: ["item"],
+  methods: {
+    doClick: function() {
+      alert(this.item);
     }
-}
+  }
+};
 </script>
+<style  scoped>
+.item {
+  margin: 10px 20px;
+  padding: 10px;
+  box-shadow: 10;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  background: #f7f7f7;
+  font-size: 14px;
+  color: #000;
+}
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content {
+  font-size: 14px;
+}
+</style>
+
+
 

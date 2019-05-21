@@ -37,7 +37,6 @@ export default {
   display: flex;
 }
 .main {
-  height: 1000px;
   flex-grow: 1;
 }
 Side {

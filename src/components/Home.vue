@@ -3,20 +3,27 @@
     <div class="detail1">
       <HomeItem v-for="(item, index) in list" v-bind:key="index" v-bind:item="item">{{item}}</HomeItem>
     </div>
-
       <router-view class="detail2"/>
-    
   </div>
 </template>
 <script>
 import HomeItem from "./HomeItem";
+
 export default {
+  created:function(){
+    this.$store.dispatch("Article/getArticleList")
+  },
   components: {
     HomeItem
   },
+  computed:{
+    list(){
+     return this.$store.state.Article.articleList;
+    }
+  },
   data: () => {
     return {
-      list: [1, 2, 3]
+      // list: [1, 2, 3]
     };
   }
 };

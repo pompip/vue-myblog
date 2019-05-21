@@ -11,8 +11,9 @@ export default new Router({
             path: '/',
             name: 'home',
             component: Home,
-            children:[{path:'/detail',component:Detail}]
+          
         },
+        {path:'/detail/:id',component:Detail,name:"detail"},
         {
             path: '/about',
             name: 'about',
