@@ -1,7 +1,7 @@
 <template>
   <div>
     <Todo/>
-    <div v-on:click="doClick">{{num}}</div>
+    <div v-on:click="doClick">{{count }}</div>
   </div>
 </template>
 <script>
@@ -11,19 +11,18 @@ export default {
   components: { Todo },
   data: () => {
     return {
-      num: 0
+      
     };
   },
   methods: {
     doClick: function() {
-      this.num++;
+      this.$store.commit({type:'increase',num:10})
+      this.$store.dispatch("getTodolist")
     }
   },
-    computed: {
-    count () {
-       let c = this.$store.state.count
-        alert(c);
-       return c;
+  computed:{
+    count (){
+      return  this.$store.state.num;
     }
   }
 };

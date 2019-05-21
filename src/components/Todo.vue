@@ -32,6 +32,9 @@ export default {
     doDelete:function(index){
       this.list.splice(index,1)
     }
+  },
+   created(){
+     this.$store.dispatch("getTodolist")
   }
 };
 </script>
