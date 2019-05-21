@@ -1,5 +1,5 @@
 <template>
-  <div v-html="pausedHtml"></div>
+  <div v-html="pausedHtml" class="markdown-body"></div>
 </template>
 <script>
 import showdown from "showdown";
