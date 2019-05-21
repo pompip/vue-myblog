@@ -16,13 +16,12 @@ export default {
   },
   methods: {
     doClick: function() {
-      this.$store.commit({type:'increase',num:10})
-      this.$store.dispatch("getTodolist")
+      this.$store.commit({type:'TodoList/increase',num:10})
     }
   },
   computed:{
     count (){
-      return  this.$store.state.num;
+      return  this.$store.state.TodoList.num;
     }
   }
 };

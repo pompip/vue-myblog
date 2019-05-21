@@ -1,9 +1,9 @@
 <template>
-    <div v-on:click="doClick">
+    <router-link to="/detail">
         <h3>title</h3>
         <span >info</span>
         <div> {{item}} </div>
-    </div>
+    </router-link>
 </template>
 <script>
 export default {

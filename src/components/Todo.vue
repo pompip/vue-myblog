@@ -5,7 +5,11 @@
       <button v-on:click="doSubmit">添加</button>
     </div>
     <ul>
-      <TodoItem v-for="(item,index) in list" v-bind:key="index" :content="item" :index="index" @doDelete="doDelete"/>
+      <TodoItem
+        v-for="(item,index) in getTodoList"
+        v-bind:key="index"
+        :index="index"
+      />
     </ul>
   </div>
 </template>
@@ -20,26 +24,29 @@ export default {
   },
   data: () => {
     return {
-      inputVlue: "111",
-      list: ["hello", "hi"]
+      inputVlue: "111"
     };
   },
   methods: {
-    doSubmit:function () {
-      this.list.push(this.inputVlue);
+    doSubmit: function() {
+      this.$store.commit({
+        type: "TodoList/addTodoList",
+        item: this.inputVlue
+      });
       this.inputVlue = "";
     },
-    doDelete:function(index){
-      this.list.splice(index,1)
-    }
   },
-   created(){
-     this.$store.dispatch("getTodolist")
+  created() {
+    this.$store.dispatch("TodoList/getTodolist");
+  },
+  computed: {
+    getTodoList() {
+      return this.$store.state.TodoList.todoList;
+    }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

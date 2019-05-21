@@ -1,21 +1,44 @@
 <template>
-    <div>
-     
-            <HomeItem v-for="(item, index) in list" v-bind:key="index" v-bind:item="item">{{item}}</HomeItem>
-      
+  <div class="detail">
+    <div class="detail1">
+      <HomeItem v-for="(item, index) in list" v-bind:key="index" v-bind:item="item">{{item}}</HomeItem>
     </div>
+
+      <router-view class="detail2"/>
+    
+  </div>
 </template>
 <script>
-import HomeItem from './HomeItem'
+import HomeItem from "./HomeItem";
 export default {
-    components:{
-        HomeItem
-    },
-    name:'Home',
-    data:()=>{
-        return{
-            list:[1,2,3]
-        }
-    }
-}
+  components: {
+    HomeItem
+  },
+  data: () => {
+    return {
+      list: [1, 2, 3]
+    };
+  }
+};
 </script>
+<style  scoped>
+.detail {
+  position: relative;
+}
+.detail1 {
+  position: absolute;
+  z-index: 0;
+  top: 1px;
+  left: 1px;
+}
+.detail2 {
+	background: gray;
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+}
+</style>
+
