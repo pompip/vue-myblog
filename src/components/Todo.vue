@@ -2,14 +2,10 @@
   <div>
     <div class="hello">
       <input v-model="inputVlue">
-      <button v-on:click="doSubmit">添加</button>
+      <div class="submit" v-on:click="doSubmit">添加</div>
     </div>
     <ul>
-      <TodoItem
-        v-for="(item,index) in getTodoList"
-        v-bind:key="index"
-        :index="index"
-      />
+      <TodoItem v-for="(item,index) in getTodoList" v-bind:key="index" :index="index"/>
     </ul>
   </div>
 </template>
@@ -34,7 +30,7 @@ export default {
         item: this.inputVlue
       });
       this.inputVlue = "";
-    },
+    }
   },
   created() {
     this.$store.dispatch("TodoList/getTodolist");
@@ -48,17 +44,29 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
 ul {
   list-style-type: none;
-  padding: 0;
 }
-li {
-  margin: 0 10px;
+input {
+  box-sizing: border-box;
+  padding: 4px;
+  height: 30px;
+  border-radius: 15px;
+  border-color: green;
+  box-shadow: none;
+  
 }
-a {
-  color: #42b983;
+
+.submit {
+  display:inline-block;
+  box-sizing: border-box;
+  padding: 4px 10px;
+  height: 30px;
+  border-radius: 15px;
+  border-color: green;
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 10px;
+  cursor: pointer;
 }
 </style>

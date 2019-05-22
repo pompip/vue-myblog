@@ -3,7 +3,6 @@
     <Nav/>
     <div class="container">
       <div class="main">
-    
         <router-view/>
       </div>
       <Side/>
@@ -35,11 +34,11 @@ export default {
 } */
 .container {
   display: flex;
+  padding-bottom: 20px;
 }
 .main {
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  width: 80%;
 }
-Side {
-  background: red;
-}
+
 </style>

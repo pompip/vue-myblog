@@ -41,7 +41,9 @@ export default {
 }
 
 .content {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 30px;
+  word-wrap:break-word;
 }
 </style>
 
