@@ -262,33 +262,33 @@
 }
 
 .markdown-body h1 {
-    font-size: 32px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 200;
 }
 
 .markdown-body h2 {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 200;
 }
 
 .markdown-body h3 {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 28px;
+    font-weight: 200;
 }
 
 .markdown-body h4 {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 200;
 }
 
 .markdown-body h5 {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 200;
 }
 
 .markdown-body h6 {
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 200;
 }
 
 .markdown-body p {

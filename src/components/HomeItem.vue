@@ -1,20 +1,20 @@
 <template>
-<router-link :to="'/detail/'+item.id">
+  <router-link :to="'/detail/'+item.id">
     <div class="item">
       <div class="title">{{item.title}}</div>
-      <TimeParser :time="item.createTimestamp" />
+      <TimeParser :time="item.createTimestamp"/>
       <div class="content" v-html="item.content"/>
     </div>
   </router-link>
 </template>
 <script>
-import TimeParser from './TimeParser'
+import { TimeParser } from "@/ui";
 export default {
-  components:{TimeParser},
+  components: { TimeParser },
   computed: {
     time() {
       return this.item.createTimestamp;
-    },
+    }
   },
   props: ["item"],
   methods: {
@@ -26,6 +26,7 @@ export default {
 </script>
 <style  scoped>
 .item {
+  opacity: 0.7;
   margin: 10px 20px;
   padding: 10px;
   box-shadow: 10;
@@ -43,7 +44,7 @@ export default {
 .content {
   font-size: 16px;
   line-height: 30px;
-  word-wrap:break-word;
+  word-wrap: break-word;
 }
 </style>
 

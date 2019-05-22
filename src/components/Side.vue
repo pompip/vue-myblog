@@ -1,26 +1,25 @@
 <template>
   <div class="box">
+    <Clock />
     <Todo/>
-    <div v-on:click="doClick">{{count }}</div>
+    <div v-on:click="increase(10)">{{num }}</div>
   </div>
 </template>
 <script>
 import Todo from "./Todo.vue";
+import Clock from "./Clock"
+import { mapMutations, mapState } from "vuex";
 export default {
   name: "Side",
-  components: { Todo },
+  components: { Todo,Clock },
   data: () => {
     return {};
   },
   methods: {
-    doClick: function() {
-      this.$store.commit({ type: "TodoList/increase", num: 10 });
-    }
+    ...mapMutations("TodoList", ["increase"])
   },
   computed: {
-    count() {
-      return this.$store.state.TodoList.num;
-    }
+    ...mapState("TodoList", ["num"])
   }
 };
 </script>

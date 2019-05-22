@@ -2,10 +2,12 @@
   <div id="app">
     <Nav/>
     <div class="container">
-      <div class="main">
+      <main class="main">
         <router-view/>
-      </div>
-      <Side/>
+      </main>
+      <aside>
+        <Side/>
+      </aside>
     </div>
   </div>
 </template>
@@ -24,21 +26,32 @@ export default {
 </script>
 
 <style scoped>
-/* #app {
+#app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+  /* background: #0f3854;
+        background: -webkit-radial-gradient(center ellipse, #0a2e38 0%, #000000 70%);
+        background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%); */
+
+  /* background: url("assets/background.jpg");
+  background-size: 100% 100%; */
+}
 .container {
+  box-sizing: border-box;
+  position: relative;
   display: flex;
   padding-bottom: 20px;
+  width: 98vw;
+  padding-top: 7vh;
 }
-.main {
-  /* flex-grow: 1; */
-  width: 80%;
+main {
+  box-sizing: border-box;
+  width: 80vw;
 }
-
+aside {
+  position: fixed;
+  right: 0;
+  width:max-content;
+}
 </style>

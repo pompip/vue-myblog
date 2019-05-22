@@ -3,20 +3,27 @@
     <div class="title">我的博客</div>
     <div class="space"></div>
     <router-link to="/">
-      <div class="action">首页</div>
+      <Button text="首页"/>
+    </router-link>
+    <router-link to="/edit">
+      <Button text="编辑"/>
     </router-link>
     <router-link to="/about">
       <div class="action">关于</div>
     </router-link>
-
-    <div class="action">登录</div>
-    <div class="action">注册</div>
+    <router-link to="/login">
+      <div class="action">登录</div>
+    </router-link>
+    <router-link to="/logon">
+      <Button text="注册"/>
+    </router-link>
   </div>
 </template>
 
 <script>
+import { Button } from "@/ui";
 export default {
-  name: "Nav",
+  components: { Button },
   props: {
     msg: String
   }
@@ -25,21 +32,22 @@ export default {
 
 <style scoped>
 .nav {
-  background: white;
-  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.753);
+  width: 100vw;
   display: flex;
   z-index: 1;
   border-bottom: 1px solid #f0f0f0;
   align-items: center;
-  position: relative;
-  height: 56px;
+  position: fixed;
+  height: 7vh;
 }
 .space {
   flex-grow: 1;
 }
 .title {
   display: inline-flex;
-  margin-left: 20px;
   font-size: 20px;
   font-weight: bold;
 }
