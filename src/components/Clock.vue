@@ -13,12 +13,12 @@ export default {
     };
   },
   created() {
-    var timerID = setInterval(this.updateTime, 1000);
+     setInterval(this.updateTime, 1000);
   },
   methods: {
     zeroPadding: function(num, digit) {
       var zero = "";
-      for (var i = 0; i < digit; i++) {
+      for (let i = 0; i < digit; i++) {
         zero += "0";
       }
       return (zero + num).slice(-digit);

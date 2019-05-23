@@ -30,12 +30,15 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
   /* background: #0f3854;
         background: -webkit-radial-gradient(center ellipse, #0a2e38 0%, #000000 70%);
         background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%); */
 
   /* background: url("assets/background.jpg");
   background-size: 100% 100%; */
+  display: flex;
+  flex-direction:column;
 }
 .container {
   box-sizing: border-box;

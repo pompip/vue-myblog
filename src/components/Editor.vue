@@ -1,8 +1,9 @@
 <template>
   <div class="box">
+    <button @click="show=!show">预览</button>
     <textarea class="editor" v-model="article"/>
 
-    <MarkdownParser class="preview" :markdown="article"/>
+    <!-- <MarkdownParser v-show="show" class="preview" :markdown="article"/> -->
   </div>
 </template>
 <script>
@@ -12,7 +13,7 @@ export default {
     MarkdownParser
   },
   data: () => {
-    return { article: "" };
+    return { article: "",show:false };
   },
   computed: {}
 };
@@ -21,13 +22,14 @@ export default {
 
 <style scoped>
 .box {
-  position: relative;
+  display: flex;
   height: 90vh;
- 
+  align-items:center;
 }
 .editor,
 .preview {
-  position: absolute;
+
+  margin: 0 auto;
   width: 45%;
   height: 90%;
   margin: 10px;
@@ -36,14 +38,13 @@ export default {
   border-style: solid;
   border-color: green;
   outline: none;
+  scroll-behavior:auto;
 }
 .editor{
     line-height: 24px;
     font-size: 16px;
 }
-.preview {
-  right: 0;
-}
+
 </style>
 
 
