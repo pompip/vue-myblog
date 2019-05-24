@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {MarkdownParser,TimeParser} from "@/ui";
+import { MarkdownParser, TimeParser } from "@/ui";
 
 export default {
   components: { MarkdownParser, TimeParser },
@@ -25,8 +25,8 @@ export default {
 };
 </script>
 <style scoped>
-.box{
-    margin: 10px 20px;
+.box {
+  margin: 10px 20px;
   padding: 10px;
   box-shadow: 10;
   border: 1px solid #dcdcdc;

@@ -26,15 +26,16 @@ export default {
 </script>
 <style  scoped>
 .item {
-  opacity: 0.7;
+  flex-grow: 1;
   margin: 10px 20px;
   padding: 10px;
   box-shadow: 10;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
-  background: #f7f7f7;
+  background: #f7f7f7aa;
   font-size: 14px;
   color: #000;
+  
 }
 .title {
   font-size: 18px;
@@ -45,6 +46,7 @@ export default {
   font-size: 16px;
   line-height: 30px;
   word-wrap: break-word;
+  max-width: 50vw;
 }
 </style>
 

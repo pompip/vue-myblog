@@ -4,6 +4,7 @@ const state ={
     articleList:[],
     articleDetailList:[],
     articleDetail:{},
+    editArticle:"",
     total:1,
     current:0,
 }
@@ -38,8 +39,8 @@ const actions = {
 }
 
 const getters = {
-    getArticle:(state)=>{
-        let detail=  state.articleDetail
+    getEditArticle:(state)=>{
+        let detail=  state.editArticle;
         console.log("getters:")
         console.log(detail)
         return detail;
@@ -53,6 +54,9 @@ const mutations = {
     },
     getArticleDetail:function(state,payload){
         state.articleDetail = payload.article;
+    },
+    addEditArticle:function(state,content){
+        state.editArticle = content;
     }
 }
 

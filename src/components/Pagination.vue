@@ -32,6 +32,7 @@ li{
     margin: 10px 4px;
     color:green;
     cursor: pointer;
+    background: #f7f7f7aa;
 }
 ul {
     margin: 10px 20px;

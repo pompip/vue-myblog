@@ -1,16 +1,15 @@
 <template>
-  <div class="box">
+  <aside class="box">
     <Clock />
     <Todo/>
     <div v-on:click="increase(10)">{{num }}</div>
-  </div>
+  </aside>
 </template>
 <script>
 import Todo from "./Todo.vue";
 import Clock from "./Clock"
 import { mapMutations, mapState } from "vuex";
 export default {
-  name: "Side",
   components: { Todo,Clock },
   data: () => {
     return {};
@@ -25,14 +24,17 @@ export default {
 </script>
 <style scoped>
 .box {
+  display: flex;
+  flex-direction: column;
+
+
+  box-sizing: border-box;
   margin: 10px 20px;
-  padding: 10px;
   box-shadow: 10;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
-  background: #f7f7f7;
-  font-size: 14px;
-  color: #000;
+  background: #f7f7f7aa;
+  width: 100%;
 }
 </style>
 

@@ -2,8 +2,9 @@
   <div>
     <div class="action">
       <input v-model="inputVlue" placeholder="待办">
-      <div class="submit" v-on:click="doSubmit(inputVlue)">添加</div>
+      <span class="submit" v-on:click="doSubmit(inputVlue)">添加</span>
     </div>
+
     <ul>
       <li v-on:click="remove(index)" v-for="(item,index) in todoList" :key="index">{{item}}</li>
     </ul>
@@ -43,7 +44,6 @@ ul {
   list-style-type: none;
 }
 li {
-  box-sizing: border-box;
   margin: 10px 5px;
   padding: 10px;
   box-shadow: 10;
@@ -54,30 +54,30 @@ li {
   color: #000;
 }
 input {
-  box-sizing: border-box;
-  padding: 4px;
-  height: 30px;
-  border-radius: 4px;
-  border-color: green;
-  border-width: 1px;
-  border-style: solid;
+  background: none;
+  border-style: none;
   outline: none;
-  font-size: 14px;
+  flex-grow: 1;
+  width: 0;
+  padding: 10px;
 }
-.action{
-  display: inline-flex;
-  align-content: center;
-}
+
 .submit {
-  box-sizing: border-box;
-  padding: 4px 10px;
-  height: 30px;
-  border-radius: 4px;
-  border-color: green;
-  border-width: 1px;
-  border-style: solid;
-  margin-left: 10px;
   cursor: pointer;
+  align-self: center;
+  padding:  10px;
+  border-left: 1px solid green;
+}
+
+.action {
+  box-shadow: 10;
+  background: #f7f7f7;
+  font-size: 14px;
+  margin: 10px 5px;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
   font-size: 14px;
 }
 </style>

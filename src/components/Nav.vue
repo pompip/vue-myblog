@@ -32,15 +32,11 @@ export default {
 
 <style scoped>
 .nav {
-  box-sizing: border-box;
   padding: 0 20px;
-  background: rgba(255, 255, 255, 0.753);
-  width: 100vw;
+  background: #f7f7f7aa;
   display: flex;
   z-index: 1;
-  border-bottom: 1px solid #f0f0f0;
   align-items: center;
-  position: fixed;
   height: 7vh;
 }
 .space {
