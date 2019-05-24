@@ -1,7 +1,11 @@
 <template>
   <div class="box">
-    <div>{{article.title}}</div>
-    <TimeParser :time="article.createTimestamp"/>
+    <div class="title">{{article.title}}</div>
+    <div class="info">
+      <TimeParser :time="article.createTimestamp"/>
+      <span @on:click="download">下载</span>
+    </div>
+
     <MarkdownParser :markdown="article.content"/>
   </div>
 </template>
@@ -21,6 +25,11 @@ export default {
     article() {
       return this.$store.state.Article.articleDetail;
     }
+  },
+  methods:{
+    download:function(){
+      
+    }
   }
 };
 </script>
@@ -31,9 +40,16 @@ export default {
   box-shadow: 10;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
-  background: #f7f7f7;
+  background: #f7f7f7aa;
   font-size: 14px;
   color: #000;
+}
+.title{
+  font-size: 24px;
+}
+.info{
+  display: flex;
+  justify-content: space-between;
 }
 </style>
 

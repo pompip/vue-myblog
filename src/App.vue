@@ -30,8 +30,8 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background: url("assets/background.jpg");
   background-attachment:fixed;
   background-size: 100% 100%;
