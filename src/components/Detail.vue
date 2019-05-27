@@ -1,22 +1,22 @@
 <template>
   <div class="box">
-    <div class="title">{{article.title}}</div>
+    <div class="title">{{article?article.title:""}}</div>
     <div class="info">
-      <TimeParser :time="article.createTimestamp"/>
+      <TimeParser :time="article?article.createTimestamp:''"/>
       <a :href="'/api/download/'+id">下载</a>
     </div>
 
-    <MarkdownParser :markdown="article.content"/>
+    <MarkdownParser :markdown="article?article.content:''"/>
   </div>
 </template>
 
 <script>
 import { MarkdownParser, TimeParser } from "@/ui";
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions } from 'vuex';
 export default {
   components: { MarkdownParser, TimeParser },
   created: function() {
-    this.$store.dispatch("Article/getArticleDetail", this.id);
+    this.requestArticleDetail(this.id);
   },
   computed: {
     id() {
@@ -28,10 +28,7 @@ export default {
     }
   },
   methods:{
-
-    // download:function(){
-      
-    // }
+    ...mapActions("Article",["requestArticleDetail"])
   }
 };
 </script>

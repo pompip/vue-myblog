@@ -12,17 +12,18 @@ import { Button } from "@/ui";
 export default {
   beforeRouteEnter(to, from, next) {
     if (!from.name) {
-      next(vm => vm.refreshArticleList());
+      next(vm => vm.init());
     } else {
       next();
     }
   },
+ 
   components: {
     HomeItem,
     Button
   },
   computed: {
-    list() {
+    list:function() {
       return this.$store.state.Article.articleList;
     }
   },
@@ -30,6 +31,9 @@ export default {
     ...mapActions("Article", ["refreshArticleList", "loadMoreArticleList"]),
     moreAction: function() {
       this.loadMoreArticleList();
+    },
+    init() {
+      this.refreshArticleList();
     }
   }
 };
@@ -39,10 +43,9 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.action{
-  align-self:center;
+.action {
+  align-self: center;
   width: 80%;
-
 }
 </style>
 
