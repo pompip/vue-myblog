@@ -19,7 +19,7 @@ const state = {
     articleList: [],
     articleDetailList: [],
     articleDetail: {},
-    editArticle: "啊啊啊啊",
+    editArticle: {},
     total: 1,
     current: 0,
 }
