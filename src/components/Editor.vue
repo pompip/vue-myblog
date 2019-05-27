@@ -1,24 +1,43 @@
 <template>
   <div class="box">
-    <button> 预览</button>
-    <div class="editor" contenteditable="true" v-text="getArticle" v-on:onkeyup="addArticle(article)"/>
+    <button @click="showPreview">预览</button>
+    <MarkdownEditor class="editor" v-model="article"/>
 
     <!-- <MarkdownParser v-show="show" class="preview" :markdown="article"/> -->
   </div>
 </template>
 <script>
 // import { MarkdownParser } from "@/ui";
-import {mapGetters,mapMutations} from 'vuex'
+import { mapGetters, mapMutations, mapActions } from "vuex";
+import { MarkdownEditor } from "@/ui";
 export default {
   components: {
     // MarkdownParser,
+    MarkdownEditor
   },
   data: () => {
-    return { article: "", show: false };
+    return { show: false};
   },
+
   computed: {
-    ...mapGetters("Article",{getArticle:"getEditArticle"}),
-      ...mapMutations("Article",{addArticle:"addEditArticle"})
+    ...mapGetters("Article", { getArticle: "getEditArticle" }),
+
+    article: {
+      set(value) {
+        this.addArticle(value);
+      },
+      get() {
+        return this.getArticle;
+      }
+    }
+  },
+  methods: {
+    ...mapMutations("Article", { addArticle: "addEditArticle" }),
+    ...mapActions("Article",['postArticle']),
+    showPreview: function() {
+      this.postArticle(this.$router)
+      alert(this.article);
+    }
   }
 };
 </script>
@@ -26,21 +45,21 @@ export default {
 
 <style scoped>
 .box {
-  width: 100%;
-
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .editor,
 .preview {
-  margin: 0 auto;
+  
   width: 100%;
-
-  min-height: 100%;
-
+ height: 90vh;
+  flex: 1;
   padding: 10px;
   border-width: 1px;
   border-style: solid;
   border-color: green;
-
 }
 .editor {
   line-height: 24px;

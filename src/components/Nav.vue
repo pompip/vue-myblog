@@ -32,12 +32,10 @@ export default {
 
 <style scoped>
 .nav {
-  padding: 0 20px;
+  padding: 10px 20px;
   background: #f7f7f7aa;
   display: flex;
-  z-index: 1;
   align-items: center;
-  height: 7vh;
 }
 .space {
   flex-grow: 1;

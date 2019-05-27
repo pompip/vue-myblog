@@ -57,8 +57,8 @@ input {
   background: none;
   border-style: none;
   outline: none;
-  flex-grow: 1;
-  width: 0;
+  flex: 1;
+
   padding: 10px;
 }
 

@@ -3,7 +3,7 @@
     <div class="item">
       <div class="title">{{item.title}}</div>
       <TimeParser :time="item.createTimestamp"/>
-      <div class="content" v-html="item.content"/>
+      <div class="content" v-text="item.content"/>
     </div>
   </router-link>
 </template>
@@ -32,10 +32,9 @@ export default {
   box-shadow: 10;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
-  background: #f7f7f7aa;
+  background-color: #f7f7f7aa;
   font-size: 14px;
   color: #000;
-  
 }
 .title {
   font-size: 18px;
@@ -43,10 +42,12 @@ export default {
 }
 
 .content {
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 1em;
+  line-height: 2em;
   word-wrap: break-word;
-  max-width: 50vw;
+  max-width: 40vw;
+  max-height: 6em;
+  overflow: hidden;
 }
 </style>
 

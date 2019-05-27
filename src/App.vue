@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <Nav/>
+    <Nav class="header"/>
     <div class="container">
-      <div class="main">
-        <router-view class="detail"/>
-        <Footer/>
-      </div>
+      <router-view class="main"/>
       <Side class="side"/>
     </div>
+    <Footer class="footer"/>
   </div>
 </template>
 
@@ -30,33 +28,33 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  width: 100vw;
-  background: url("assets/background.jpg");
-  background-attachment:fixed;
+  min-height: 100vh;
+  background-image: url("assets/background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
-  flex: 1;
   flex-direction: column;
+  align-items: center;
 }
+.header {
+  position: fixed;
+  width: 100vw;
+}
+
 .container {
-  width: 100%;
-  flex: 1;
-  overflow-y:scroll;
+  width: 60vw;
+  padding-top: 7vh;
   display: flex;
-  
-  flex-direction: row;
-  justify-content: center;
+  flex: 1;
+  align-items: flex-start;
 }
 .main {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
+  flex: 1;
 }
 .side {
-  width: 18%;
-}
-.detail {
-  flex-grow: 1;
+  position: fixed;
+  flex: 0 0 24em;
+  right: 0;
 }
 </style>

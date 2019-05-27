@@ -15,6 +15,9 @@ export default new Router({
             path: '/',
             name: 'home',
             component: Home,
+            meta:{
+                
+            }
 
         },
         { path: '/detail/:id', component: Detail, name: "detail" },
@@ -30,5 +33,11 @@ export default new Router({
         {path:"/login",component:Login,name:"login"},
         {path:"/logon",component:Logon,name:"logon"},
         {path:"/edit",component:Editor,name:"editor"}
-    ]
+    ],
+    scrollBehavior (
+        // to, from, savedPosition
+        ) {
+        // return 期望滚动到哪个的位置
+        return { x: 0, y: 0 }
+      }
 })

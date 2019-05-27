@@ -26,15 +26,13 @@ export default {
 .box {
   display: flex;
   flex-direction: column;
-
-
   box-sizing: border-box;
   margin: 10px 20px;
   box-shadow: 10;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
   background: #f7f7f7aa;
-  width: 100%;
+
 }
 </style>
 

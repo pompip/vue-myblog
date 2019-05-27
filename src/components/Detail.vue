@@ -3,7 +3,7 @@
     <div class="title">{{article.title}}</div>
     <div class="info">
       <TimeParser :time="article.createTimestamp"/>
-      <span @on:click="download">下载</span>
+      <a :href="'/api/download/'+id">下载</a>
     </div>
 
     <MarkdownParser :markdown="article.content"/>
@@ -12,7 +12,7 @@
 
 <script>
 import { MarkdownParser, TimeParser } from "@/ui";
-
+import {mapGetters} from 'vuex';
 export default {
   components: { MarkdownParser, TimeParser },
   created: function() {
@@ -22,14 +22,16 @@ export default {
     id() {
       return this.$route.params.id;
     },
+        ...mapGetters("Article",["getArticleDetail"]),
     article() {
-      return this.$store.state.Article.articleDetail;
+      return  this.getArticleDetail(this.id);
     }
   },
   methods:{
-    download:function(){
+
+    // download:function(){
       
-    }
+    // }
   }
 };
 </script>
