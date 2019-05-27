@@ -27,7 +27,7 @@ export default {
     }
   },
   computed: {
-    list() {
+    list:function() {
       return this.$store.state.Article.articleList;
     }
   },
@@ -35,6 +35,9 @@ export default {
     ...mapActions("Article", ["refreshArticleList", "loadMoreArticleList"]),
     moreAction: function() {
       this.loadMoreArticleList();
+    },
+    init() {
+      this.refreshArticleList();
     }
   }
 };
@@ -44,10 +47,9 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.action{
-  align-self:center;
+.action {
+  align-self: center;
   width: 80%;
-
 }
 </style>
 

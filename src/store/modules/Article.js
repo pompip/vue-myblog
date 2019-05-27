@@ -2,14 +2,12 @@ import axios from "../../api/Http";
 
 const getArticleList = (context, page) => {
     axios.get("/article/page/" + page).then(res => {
-        context.commit(
-            {
-                type: "saveArticleList",
-                list: res.data.content,
-                total: res.data.total,
-                current: res.data.current,
-            }
-        )
+        context.commit({
+            type: "saveArticleList",
+            list: res.data.content,
+            total: res.data.total,
+            current: res.data.current,
+        })
     }).catch(err => {
         console.log(err)
     })
@@ -26,18 +24,16 @@ const state = {
 
 const actions = {
     refreshArticleList(context) {
-        context.commit(
-            {
-                type: "initArticleState"
-            }
-        )
+        context.commit({
+            type: "initArticleState"
+        })
         getArticleList(context, 0);
     },
     loadMoreArticleList(context) {
         getArticleList(context, context.state.current + 1);
     },
-    getArticleDetail(context, id) {
-        if(context.getters.getArticleDetail(id)){
+    requestArticleDetail(context, id) {
+        if (context.getters.getArticleDetail(id)) {
             return;
         }
         axios.get("/article/detail/" + id)
@@ -54,10 +50,12 @@ const actions = {
 
     postArticle(context, $router) {
         axios.post("/article/save",
-            'content=' + context.state.editArticle)
+                'content=' + context.state.editArticle)
             .then((res) => {
                 console.log(res);
-                $router.push({ path: "/detail/" + res.data.id })
+                $router.push({
+                    path: "/detail/" + res.data.id
+                })
             }).catch((err) => {
                 console.log(err)
             });
@@ -70,10 +68,9 @@ const getters = {
     },
     getArticleDetail: (state) => {
         return (id) => {
-            return state.articleList.find((value) => {
+            return state.articleDetailList.find((value) => {
                 return value.id == id
             })
-
         }
     }
 }
@@ -89,7 +86,7 @@ const mutations = {
         state.current = payload.current;
     },
     saveArticleDetail: function (state, payload) {
-        state.articleDetail = payload.article;
+        state.articleDetailList = [...state.articleDetailList, payload.article];
     },
     addEditArticle: function (state, content) {
         state.editArticle = content;
