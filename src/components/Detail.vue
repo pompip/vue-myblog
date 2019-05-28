@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import { MarkdownParser, TimeParser,Button } from "@/ui";
+import { MarkdownParser, TimeParser, } from "@/ui";
 import {mapGetters, mapActions, mapMutations } from 'vuex';
 export default {
-  components: { MarkdownParser, TimeParser,Button },
+  components: { MarkdownParser, TimeParser, },
   created: function() {
     this.requestArticleDetail(this.id);
   },
