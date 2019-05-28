@@ -11,7 +11,6 @@
 export default {
   mounted:function(){
      this.$refs.input.innerText=this.text;
-      console.log(this.$refs.input)
   },
   model: {
     prop: "text",
@@ -20,10 +19,5 @@ export default {
   props: {
     text: String
   },
-  methods: {
-    textChange: function() {
-      alert(this.text);
-    }
-  }
 };
 </script>

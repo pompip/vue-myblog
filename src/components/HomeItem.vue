@@ -27,7 +27,7 @@ export default {
 <style  scoped>
 .item {
   flex-grow: 1;
-  margin: 10px 20px;
+  margin: 5px 20px;
   padding: 10px;
   box-shadow: 10;
   border: 1px solid #dcdcdc;

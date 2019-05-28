@@ -1,10 +1,10 @@
 <template>
-  <div @click="$emit('click')">{{text }}</div>
+  <div v-on:click="$emit('click')"  ><slot>hello</slot></div>
 </template>
 
 <script>
 export default {
-    props:["text"]
+
 };
 </script>
 

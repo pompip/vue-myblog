@@ -16,12 +16,13 @@ const getArticleList = (context, page) => {
 const state = {
     articleList: [],
     articleDetailList: [],
-    articleDetail: {},
-    editArticle: {},
+    editArticle: {
+        content:""
+    },
     total: 1,
     current: 0,
 }
-
+var t;
 const actions = {
     refreshArticleList(context) {
         context.commit({
@@ -48,17 +49,23 @@ const actions = {
             })
     },
 
-    postArticle(context, $router) {
-        axios.post("/article/save",
-                'content=' + context.state.editArticle)
-            .then((res) => {
+    postArticle(context) {
+        if (t) {
+            clearTimeout(t);
+        }
+        t = setTimeout(() => {
+            // axios.post("/article/save",
+            //     'content=' + context.state.editArticle)
+            axios.post("/article/save", {
+                ...context.state.editArticle
+            }).then((res) => {
                 console.log(res);
-                $router.push({
-                    path: "/detail/" + res.data.id
-                })
+                context.commit("saveEditArticle",res.data)
             }).catch((err) => {
                 console.log(err)
             });
+        }, 5000)
+
     }
 }
 
@@ -88,8 +95,11 @@ const mutations = {
     saveArticleDetail: function (state, payload) {
         state.articleDetailList = [...state.articleDetailList, payload.article];
     },
-    addEditArticle: function (state, content) {
-        state.editArticle = content;
+    saveEditArticle: function (state, payload) {
+        state.editArticle = {...state.editArticle,...payload};
+    },
+    saveEditArticleContent: function (state, text) {
+        state.editArticle = {...state.editArticle,content:text};
     }
 }
 

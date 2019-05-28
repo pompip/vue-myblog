@@ -2,7 +2,7 @@
   <div class="detail">
     <HomeItem v-for="(item, index) in list" v-bind:key="index" v-bind:item="item">{{item}}</HomeItem>
 
-    <Button class="action" v-on:click="moreAction" text="获取更多"/>
+    <Button class="action" v-on:click="moreAction" >获取更多</Button>
   </div>
 </template>
 <script>
