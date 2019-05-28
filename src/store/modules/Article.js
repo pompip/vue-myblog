@@ -100,6 +100,12 @@ const mutations = {
     },
     saveEditArticleContent: function (state, text) {
         state.editArticle = {...state.editArticle,content:text};
+    },
+    copyToEditArticle: function (state,id) {
+        let fromArticle = state.articleDetailList.find((value) => {
+            return value.id == id
+        })
+        state.editArticle = {...fromArticle}
     }
 }
 

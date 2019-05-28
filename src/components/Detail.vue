@@ -3,6 +3,8 @@
     <div class="title">{{article?article.title:""}}</div>
     <div class="info">
       <TimeParser :time="article?article.createTimestamp:''"/>
+      <div class="detail-space"/>
+      <a href="#" v-on:click="toEditor">编辑</a>
       <a :href="'/api/download/'+id">下载</a>
     </div>
 
@@ -11,10 +13,10 @@
 </template>
 
 <script>
-import { MarkdownParser, TimeParser } from "@/ui";
-import {mapGetters, mapActions } from 'vuex';
+import { MarkdownParser, TimeParser,Button } from "@/ui";
+import {mapGetters, mapActions, mapMutations } from 'vuex';
 export default {
-  components: { MarkdownParser, TimeParser },
+  components: { MarkdownParser, TimeParser,Button },
   created: function() {
     this.requestArticleDetail(this.id);
   },
@@ -28,7 +30,12 @@ export default {
     }
   },
   methods:{
-    ...mapActions("Article",["requestArticleDetail"])
+    ...mapActions("Article",["requestArticleDetail"]),
+    ...mapMutations("Article",['copyToEditArticle']),
+    toEditor(){
+      this.copyToEditArticle(this.id);
+      this.$router.push("/edit")
+    }
   }
 };
 </script>
@@ -48,7 +55,11 @@ export default {
 }
 .info{
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-start;
+  align-items: center;
+}
+.detail-space{
+  flex-grow: 1;
 }
 </style>
 
