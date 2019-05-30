@@ -31,7 +31,7 @@ export default {
   box-shadow: 10;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
-  background: #f7f7f7aa;
+  background: rgba(255, 255, 255, 0.8);
 
 }
 </style>

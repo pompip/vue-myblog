@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <header class="nav">
     <div class="title">我的博客</div>
     <div class="space"></div>
     <router-link to="/">
@@ -8,16 +8,16 @@
     <router-link to="/edit">
       <Button >编辑</Button>
     </router-link>
-    <router-link to="/about">
+    <!-- <router-link to="/about">
       <Button >关于</Button>
-    </router-link>
+    </router-link> -->
     <router-link to="/login">
       <Button >登录</Button>
     </router-link>
     <router-link to="/logon">
       <Button >注册</Button>
     </router-link>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -33,7 +33,7 @@ export default {
 <style scoped>
 .nav {
   padding: 10px 20px;
-  background: #f7f7f7aa;
+  background: rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
 }

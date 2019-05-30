@@ -60,7 +60,7 @@ export default {
   height: 88vh;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #f7f7f7aa;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .editor {
   width: 100%;

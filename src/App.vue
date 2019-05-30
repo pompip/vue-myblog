@@ -38,16 +38,24 @@ export default {
   align-items: center;
 }
 .header {
-  position: fixed;
+  /* position: fixed; */
   width: 100vw;
 }
 
 .container {
   width: 60vw;
-  padding-top: 4em;
+  /* padding-top: 4em; */
   display: flex;
   flex: 1;
   align-items: flex-start;
+}
+@media screen and (max-width: 720px) {
+    .container  {
+        width: 100vw;
+    }
+    .side {
+display: none;
+}
 }
 .main {
   flex: 1;

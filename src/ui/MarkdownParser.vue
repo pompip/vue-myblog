@@ -18,5 +18,8 @@ export default {
 </script>
 <style scoped>
 @import '~@/assets/markdown-style.css';
+.markdown-body{
+  max-width: 100vh;
+}
 </style>
 

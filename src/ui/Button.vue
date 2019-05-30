@@ -12,7 +12,7 @@ export default {
 div {
   margin: 0 10px;
   color: green;
-  background-color: #f7f7f7aa;
+  background-color:rgba(255, 255, 255, 0.8);
   display:inline-block;
   padding: 0 16px;
   line-height: 32px;
