@@ -9,13 +9,23 @@
       <span>密码</span>
       <input>
     </div>
-    <button>登录</button>
+    <button v-on:click="myLogin('chong','314159')">登录</button>
   </div>
 </template>
 <script>
 import { mapActions } from "vuex";
+const methods = {
+  ...mapActions(["login"]),
+  myLogin(name,password){
+      this.login({
+        name,password
+      })
+  }
+}
 
-export default {};
+export default {
+  methods,
+};
 </script>
 
 <style scoped>
