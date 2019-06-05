@@ -8,7 +8,8 @@ import Editor from './components/Editor'
 
 Vue.use(Router)
 
-export default new Router({
+const rou =  new Router({
+  
     mode: 'history',
     routes: [
         {
@@ -32,12 +33,24 @@ export default new Router({
         },
         {path:"/login",component:Login,name:"login"},
         {path:"/logon",component:Logon,name:"logon"},
-        {path:"/edit",component:Editor,name:"editor"}
+        {path:"/edit",component:Editor,name:"editor",meta:{
+                requireAuth:true
+        }}
     ],
     scrollBehavior (
         // to, from, savedPosition
         ) {
         // return 期望滚动到哪个的位置
-        return { x: 0, y: 0 }
-      }
+        // return { x: 0, y: 0 }
+      },
+  
 })
+rou.  beforeEach((to, from, next) => {
+    if(to.meta.requireAuth){
+        next({  path:"/login"})
+    }else{
+        next();
+    }
+  
+  })
+export default rou;
