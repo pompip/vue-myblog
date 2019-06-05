@@ -6,7 +6,7 @@ import Login from './modules/Login'
 
 Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
-export default new Vuex.Store({
+const store =  new Vuex.Store({
     modules: {
         TodoList,
         Article,
@@ -15,3 +15,5 @@ export default new Vuex.Store({
     strict: debug,
     // plugins: debug ? [createLogger()] : []
 })
+console.log(store)
+export default store;

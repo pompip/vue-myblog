@@ -1,7 +1,7 @@
 import axios from "@/api/Http";
 
 const state = {
-    token: ""
+    token: "456"
 }
 
 const getters = {
