@@ -15,5 +15,4 @@ const store =  new Vuex.Store({
     strict: debug,
     // plugins: debug ? [createLogger()] : []
 })
-console.log(store)
 export default store;

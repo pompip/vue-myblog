@@ -1,31 +1,36 @@
 <template>
   <header class="nav">
-    <div class="title">我的博客</div>
-    <div class="space"></div>
     <router-link to="/">
-      <Button >首页</Button>
+      <div class="title">我的博客</div>
     </router-link>
+    <div class="space"></div>
+
     <router-link to="/edit">
-      <Button >编辑</Button>
+      <Button>编辑</Button>
     </router-link>
     <!-- <router-link to="/about">
       <Button >关于</Button>
-    </router-link> -->
-    <router-link to="/login">
-      <Button >登录</Button>
-    </router-link>
-    <router-link to="/logon">
-      <Button >注册</Button>
+    </router-link>-->
+    <Button v-if="isLogin">退出</Button>
+    <router-link to="/login" v-else>
+      <Button>登录</Button>
     </router-link>
   </header>
 </template>
 
 <script>
 import { Button } from "@/ui";
+import { mapGetters } from "vuex";
+
 export default {
   components: { Button },
-  props: {
-    msg: String
+  data() {
+    return {
+      // hello:false
+    };
+  },
+  computed: {
+    ...mapGetters(["isLogin"])
   }
 };
 </script>
@@ -45,5 +50,4 @@ export default {
   font-size: 20px;
   font-weight: bold;
 }
-
 </style>

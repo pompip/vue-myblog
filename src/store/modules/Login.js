@@ -1,11 +1,14 @@
 import axios from "@/api/Http";
 
 const state = {
-    token: "456"
+    token: "456",
+    isLogin:true
 }
 
 const getters = {
-
+    isLogin:(state)=>{
+        return state.isLogin;
+    }
 }
 
 const actions = {
