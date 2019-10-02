@@ -38,7 +38,7 @@ export default {
 <style scoped>
 .nav {
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(38, 68, 200, 0.8);
   display: flex;
   align-items: center;
 }
@@ -49,5 +49,6 @@ export default {
   display: inline-flex;
   font-size: 20px;
   font-weight: bold;
+  color: #ffffff;
 }
 </style>

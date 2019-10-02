@@ -1,13 +1,14 @@
 import axios from "@/api/Http";
 
 const state = {
-    token: "456",
+    token: localStorage.getItem("token"),
     isLogin:true
 }
 
 const getters = {
     isLogin:(state)=>{
-        return state.isLogin;
+        console.log(state.token)
+        return state.token!==null;
     }
 }
 
@@ -31,7 +32,7 @@ const actions = {
 const mutations = {
     addToken(state,token){
         console.log(token)
-        state.token = token;
+        localStorage.setItem("token",token)
     }
 }
 

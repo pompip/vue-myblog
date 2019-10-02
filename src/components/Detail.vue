@@ -1,14 +1,23 @@
 <template>
+  <div>
   <div class="box">
     <div class="title">{{article?article.title:""}}</div>
     <div class="info">
-      <TimeParser :time="article?article.createTimestamp:''"/>
-      <div class="detail-space"/>
+      <TimeParser :time="article?article.createTime:''"/>
+      <div class="detail-space"></div>
       <a href="#" v-on:click="toEditor">编辑</a>
       <a :href="'/api/download/'+id">下载</a>
     </div>
 
     <MarkdownParser :markdown="article?article.content:''"/>
+
+  </div>
+  <div class="box">
+    <span >评论：</span>
+    <div v-for="(item,i) in test " :key="i" class="info">
+      <span >hello world {{item}} {{i}}</span>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -27,6 +36,9 @@ export default {
         ...mapGetters("Article",["getArticleDetail"]),
     article() {
       return  this.getArticleDetail(this.id);
+    },
+    test(){
+      return ["1","2"]
     }
   },
   methods:{
@@ -44,7 +56,7 @@ export default {
   max-width: 100vw;
   margin: 10px 20px;
   padding: 10px;
-  box-shadow: 10;
+  box-shadow:  #005cc5;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.8);

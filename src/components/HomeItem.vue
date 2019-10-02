@@ -2,8 +2,8 @@
   <router-link :to="'/detail/'+item.id">
     <div class="item">
       <div class="title">{{item.title}}</div>
-      <TimeParser :time="item.createTimestamp"/>
-      <div class="content" v-text="item.content"/>
+      <TimeParser :time="item.createTime"/>
+      <div class="content" v-text="item.content"></div>
     </div>
   </router-link>
 </template>
