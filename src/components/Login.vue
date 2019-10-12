@@ -34,10 +34,14 @@
 import { mapActions } from "vuex";
 const methods = {
   ...mapActions(["login"]),
+  loginSuccess(){
+    this.$router.push({path:'/'})
+  },
   myLogin(name, password) {
     this.login({
       name,
-      password
+      password,
+      loginSuccess:this.loginSuccess
     });
   },
   change(isLoginPage){

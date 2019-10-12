@@ -21,7 +21,8 @@ const actions = {
             }
         )
             .then(res => {
-                context.commit("addToken",res.data.data.token)
+                context.commit("addToken",res.data.data.token);
+                payload.loginSuccess()
             })
             .catch(err => {
                 console.error(err);
@@ -32,7 +33,8 @@ const actions = {
 const mutations = {
     addToken(state,token){
         console.log(token)
-        localStorage.setItem("token",token)
+        localStorage.setItem("token",token);
+        state.token = token;
     }
 }
 

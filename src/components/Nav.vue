@@ -11,7 +11,7 @@
     <!-- <router-link to="/about">
       <Button >关于</Button>
     </router-link>-->
-    <Button v-if="isLogin">退出</Button>
+    <Button v-if="isLogin" v-on:click="logout">退出</Button>
     <router-link to="/login" v-else>
       <Button>登录</Button>
     </router-link>
@@ -31,7 +31,12 @@ export default {
   },
   computed: {
     ...mapGetters(["isLogin"])
-  }
+  },
+  methods: {
+    logout(){
+      console.log('logout')
+    }
+  },
 };
 </script>
 

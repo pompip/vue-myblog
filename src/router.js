@@ -5,6 +5,7 @@ import Detail from './components/Detail.vue'
 import Login from './components/Login'
 import Logon from './components/Logon'
 import Editor from './components/Editor'
+import store from './store/index'
 
 Vue.use(Router)
 
@@ -47,7 +48,13 @@ const rou =  new Router({
 })
 rou.  beforeEach((to, from, next) => {
     if(to.meta.requireAuth){
-        next({  path:"/login"})
+        var token = store.state.Login.token;
+        console.log("token:"+token)
+        if(token){
+            next(); 
+        }else{
+            next({  path:"/login"})
+        }
     }else{
         next();
     }

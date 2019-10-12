@@ -15,6 +15,7 @@ const a = axios.create({
 a.interceptors.request.use(
     function (config) {
         let t = store.state.Login.token;
+        console.log("token:"+t);
         if (t) {
             config.headers = {
                 token: store.state.Login.token
