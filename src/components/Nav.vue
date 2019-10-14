@@ -20,7 +20,7 @@
 
 <script>
 import { Button } from "@/ui";
-import { mapGetters } from "vuex";
+import { mapGetters,mapMutations } from "vuex";
 
 export default {
   components: { Button },
@@ -33,8 +33,9 @@ export default {
     ...mapGetters(["isLogin"])
   },
   methods: {
+    ...mapMutations(["removeToken"]),
     logout(){
-      console.log('logout')
+      this.removeToken()
     }
   },
 };

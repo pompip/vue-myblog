@@ -35,6 +35,10 @@ const mutations = {
         console.log(token)
         localStorage.setItem("token",token);
         state.token = token;
+    },
+    removeToken(state){
+        localStorage.removeItem("token");
+        state.token=null;
     }
 }
 
