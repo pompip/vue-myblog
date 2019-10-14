@@ -2,23 +2,21 @@
   <div class="editor-box">
     <Button class="preview-button" @click="showPreview">预览</Button>
 
+    <div class="editor_preview">
     <MarkdownEditor class="editor" v-model="content" />
 
-    <!-- <MarkdownParser v-show="show" class="preview" :markdown="article"/> -->
-    <Dialog v-bind:open="show" v-on:dismiss="dialogDismiss">
-      <MarkdownParser class="preview" :markdown="content" />
-    </Dialog>
+    <MarkdownParser class="preview" :markdown="content" />
+    </div>
   </div>
 </template>
 <script>
 import { MarkdownParser } from "@/ui";
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import { MarkdownEditor, Dialog, Button } from "@/ui";
+import { MarkdownEditor, Button } from "@/ui";
 export default {
   components: {
     MarkdownParser,
     MarkdownEditor,
-    Dialog,
     Button
   },
   data: () => {
@@ -61,7 +59,7 @@ export default {
   background-color: rgba(255, 255, 255, 0.8);
 }
 .editor {
-  width: 100%;
+  width: 50%;
   height: 88vh;
   flex: 1;
   padding: 10px;
@@ -80,11 +78,16 @@ export default {
   border-width: 1px;
   border-style: solid;
   border-color: green;
-  width: 50vw;
+  width: 50%;
 }
 
 .preview-button {
   align-self: flex-end;
+}
+
+.editor_preview{
+  display:flex;
+  width: 100%
 }
 </style>
 

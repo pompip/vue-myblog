@@ -15,11 +15,10 @@ const getters = {
 const actions = {
     login(context, payload) {
         console.log(payload);
-        axios.post("/user/login",
-            {
-                ...payload
-            }
-        )
+        let userData = new FormData()
+        userData.append("name",payload.name)
+        userData.append('password',payload.password)
+        axios.post("/user/login",userData)
             .then(res => {
                 context.commit("addToken",res.data.data.token);
                 payload.loginSuccess()
