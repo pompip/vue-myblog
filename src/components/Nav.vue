@@ -5,7 +5,7 @@
     </router-link>
     <div class="space"></div>
 
-    <router-link to="/edit">
+    <router-link to="/edit/new">
       <Button>编辑</Button>
     </router-link>
     <!-- <router-link to="/about">

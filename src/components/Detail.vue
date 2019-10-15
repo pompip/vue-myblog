@@ -5,8 +5,8 @@
     <div class="info">
       <TimeParser :time="article?article.createTime:''"/>
       <div class="detail-space"></div>
-      <a href="#" v-on:click="toEditor">编辑</a>
-      <a :href="'/api/download/'+id">下载</a>
+      <span  v-on:click="toEditor">编辑</span>
+      <a :href="'http://java.asuscomm.com:9000/api/download/'+id" :download="filename">下载</a>
     </div>
 
     <MarkdownParser :markdown="article?article.content:''"/>
@@ -46,8 +46,8 @@ export default {
     ...mapMutations("Article",['copyToEditArticle']),
     toEditor(){
       this.copyToEditArticle(this.id);
-      this.$router.push("/edit")
-    }
+      this.$router.push("/edit/"+this.id)
+    },
   }
 };
 </script>

@@ -34,7 +34,7 @@ const rou =  new Router({
         },
         {path:"/login",component:Login,name:"login"},
         {path:"/logon",component:Logon,name:"logon"},
-        {path:"/edit",component:Editor,name:"editor",meta:{
+        {path:"/edit/:id",component:Editor,name:"editor",meta:{
                 requireAuth:true
         }}
     ],
