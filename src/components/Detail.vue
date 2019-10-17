@@ -6,7 +6,7 @@
       <TimeParser :time="article?article.createTime:''"/>
       <div class="detail-space"></div>
       <span  v-on:click="toEditor">编辑</span>
-      <a :href="'http://java.asuscomm.com:9000/api/download/'+id" :download="filename">下载</a>
+      <a :href="baseUrl+'/download/'+id" :download='article?article.title:""'>下载</a>
     </div>
 
     <MarkdownParser :markdown="article?article.content:''"/>
@@ -24,10 +24,16 @@
 <script>
 import { MarkdownParser, TimeParser, } from "@/ui";
 import {mapGetters, mapActions, mapMutations } from 'vuex';
+import baseUrl from '@/globle'
 export default {
   components: { MarkdownParser, TimeParser, },
   created: function() {
     this.requestArticleDetail(this.id);
+  },
+  data:() => {
+    return {
+      baseUrl,
+    }
   },
   computed: {
     id() {
