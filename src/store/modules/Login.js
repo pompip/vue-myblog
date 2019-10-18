@@ -3,14 +3,13 @@ import axios from "@/api/Http";
 const state = {
     token: localStorage.getItem("token"),
     isLogin:true
-}
+};
 
 const getters = {
     isLogin:(state)=>{
-        console.log(state.token)
         return state.token!==null;
     }
-}
+};
 
 const actions = {
     login(context, payload) {
@@ -24,14 +23,14 @@ const actions = {
                 payload.loginSuccess()
             })
             .catch(err => {
-                console.error(err);
+                alert("用户名或密码错误")
+                console.log(err)
             })
     }
-}
+};
 
 const mutations = {
     addToken(state,token){
-        console.log(token)
         localStorage.setItem("token",token);
         state.token = token;
     },
@@ -39,7 +38,7 @@ const mutations = {
         localStorage.removeItem("token");
         state.token=null;
     }
-}
+};
 
 export default {
     // namespaced: true,

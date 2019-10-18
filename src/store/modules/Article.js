@@ -76,7 +76,7 @@ const getters = {
     getArticleDetail: (state) => {
         return (id) => {
             return state.articleDetailList.find((value) => {
-                return value.id == id
+                return value.id === parseInt(id)
             })
         }
     }

@@ -1,11 +1,13 @@
 <template>
+  <div class="item">
   <router-link :to="'/detail/'+item.id">
-    <div class="item">
+    <div style="padding: 10px">
       <div class="title">{{item.title}}</div>
       <TimeParser :time="item.createTime"/>
       <div class="content" v-text="item.content"></div>
     </div>
   </router-link>
+  </div>
 </template>
 <script>
 import { TimeParser } from "@/ui";
@@ -28,7 +30,7 @@ export default {
 .item {
   flex-grow: 1;
   margin: 5px 20px;
-  padding: 10px;
+
   box-shadow: 10;
   border: 1px solid #dcdcdc;
   border-radius: 4px;

@@ -2,8 +2,10 @@ import axios from 'axios'
 // import Qs from 'qs'
 import store from '../store/index'
 
+import baseUrl from '@/globle'
+
 const a = axios.create({
-    baseURL: "http://java.asuscomm.com:9000/api",
+    baseURL: baseUrl,
     timeout: 5000
 });
 a.interceptors.request.use(
