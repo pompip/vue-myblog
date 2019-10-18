@@ -6,7 +6,7 @@
       <TimeParser :time="article?article.createTime:''"/>
       <div class="detail-space"></div>
       <span  v-on:click="toEditor">编辑</span>
-      <a :href="'http://java.asuscomm.com:9000/api/download/'+id" :download="filename">下载</a>
+      <a :href="'http://java.asuscomm.com:9000/api/download/'+id" :download="article.title">下载</a>
     </div>
 
     <MarkdownParser :markdown="article?article.content:''"/>
