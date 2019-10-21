@@ -62,10 +62,6 @@ export default {
   max-width: 100vw;
   margin: 10px 20px;
   padding: 10px;
-  box-shadow:  #005cc5;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   color: #000;
 }
