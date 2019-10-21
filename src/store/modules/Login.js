@@ -2,7 +2,6 @@ import axios from "@/api/Http";
 
 const state = {
     token: localStorage.getItem("token"),
-    isLogin:true
 };
 
 const getters = {
@@ -26,6 +25,19 @@ const actions = {
                 alert("用户名或密码错误")
                 console.log(err)
             })
+    },
+    refreshToken(context,payload){
+        axios.post('/user/refresh')
+        .then(res=>{
+            context.commit("addToken",res.data.data.token)
+        }).catch(err=>{
+            context.commit("removeToken")
+            if(payload instanceof Function ){
+                payload()
+            }
+     
+            console.error(err)
+        })
     }
 };
 

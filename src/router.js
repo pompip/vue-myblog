@@ -9,55 +9,75 @@ import store from './store/index'
 
 Vue.use(Router)
 
-const rou =  new Router({
-  
+const rou = new Router({
+
     mode: 'history',
-    routes: [
-        {
+    routes: [{
             path: '/',
             name: 'home',
             component: Home,
-            meta:{
-                
+            meta: {
+
             }
 
         },
-        { path: '/detail/:id', component: Detail, name: "detail" },
+        {
+            path: '/detail/:id',
+            component: Detail,
+            name: "detail"
+        },
         {
             path: '/about',
             name: 'about',
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import(/* webpackChunkName: "about" */ './components/About.vue')
+            component: () => import( /* webpackChunkName: "about" */ './components/About.vue')
             // component: About
         },
-        {path:"/login",component:Login,name:"login"},
-        {path:"/logon",component:Logon,name:"logon"},
-        {path:"/edit/:id",component:Editor,name:"editor",meta:{
-                requireAuth:true
-        }}
+        {
+            path: "/login",
+            component: Login,
+            name: "login"
+        },
+        {
+            path: "/logon",
+            component: Logon,
+            name: "logon"
+        },
+        {
+            path: "/edit/:id",
+            component: Editor,
+            name: "editor",
+            meta: {
+                requireAuth: true
+            }
+        }
     ],
-    scrollBehavior (
+    scrollBehavior(
         // to, from, savedPosition
-        ) {
+    ) {
         // return 期望滚动到哪个的位置
         // return { x: 0, y: 0 }
-      },
-  
+    },
+
 })
-rou.  beforeEach((to, from, next) => {
-    if(to.meta.requireAuth){
-        var token = store.state.Login.token;
-        console.log("token:"+token)
-        if(token){
-            next(); 
-        }else{
-            next({  path:"/login"})
+rou.beforeEach((to, from, next) => {
+    if (to.meta.requireAuth) {
+        var isLogin = store.getters.isLogin;
+        if (isLogin) {
+            next();
+            store.dispatch("refreshToken",()=>{
+                next({path:"/login"})
+            })
+        } else {
+            next({
+                path: "/login"
+            })
         }
-    }else{
+    } else {
         next();
     }
-  
-  })
+
+})
 export default rou;

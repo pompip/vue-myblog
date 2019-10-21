@@ -20,10 +20,15 @@
 
 <script>
 import { Button } from "@/ui";
-import { mapGetters,mapMutations } from "vuex";
+import { mapGetters,mapMutations,mapActions } from "vuex";
 
 export default {
   components: { Button },
+  created() {
+    if(this.isLogin){
+        this.refreshToken()
+    }
+  },
   data() {
     return {
       // hello:false
@@ -34,6 +39,7 @@ export default {
   },
   methods: {
     ...mapMutations(["removeToken"]),
+    ...mapActions(["refreshToken"]),
     logout(){
       this.removeToken()
     }
