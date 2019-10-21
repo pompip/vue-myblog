@@ -2,7 +2,6 @@
   <aside class="box">
     <Clock />
     <Todo/>
-    <div v-on:click="increase(10)">{{num }}</div>
   </aside>
 </template>
 <script>
@@ -28,7 +27,6 @@ export default {
   flex-direction: column;
   box-sizing: border-box;
   margin: 10px 20px;
-  box-shadow: 10;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.8);

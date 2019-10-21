@@ -55,7 +55,7 @@ export default {
 
 }
 .editor,.preview  {
-  flex-grow: 1;
+  width: 50%;
   height: 88vh;
   padding: 10px;
   margin-left: 10px;

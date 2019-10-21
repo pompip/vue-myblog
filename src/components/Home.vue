@@ -53,7 +53,7 @@
     }
 
     .item {
-        width: 20vw;
+        width: 30%;
         flex-grow: 1;
         margin: 5px 5px;
         box-shadow: #0aafe6;

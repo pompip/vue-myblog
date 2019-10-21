@@ -60,9 +60,8 @@
             display: none;
         }
     }
-
-    .main {
-        flex: 1;
+    .main{
+        width: 100%;
     }
 
     .side {

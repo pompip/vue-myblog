@@ -17,9 +17,9 @@ export default {
 };
 </script>
 <style scoped>
-@import '~@/assets/markdown-style.css';
+@import "~@/assets/markdown-style.css";
 .markdown-body{
-  max-width: 100vh;
+  max-width: 100vw;
 }
 </style>
 
