@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Logon from './components/Logon'
 import Editor from './components/Editor'
 import store from './store/index'
+import FavList from './components/FavList'
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ const rou = new Router({
             path: '/detail/:id',
             component: Detail,
             name: "detail"
+        },
+        {
+            path: "/fav",
+            component: FavList,
+            name: "FavList"
         },
         {
             path: '/about',
