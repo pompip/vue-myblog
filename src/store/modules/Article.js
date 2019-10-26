@@ -1,7 +1,7 @@
-import axios from "../../api/Http";
+import http from "@/api";
 
 const getArticleList = (context, page) => {
-    axios.get("/article/page/" + page).then(res => {
+    http.get("/article/page/" + page).then(res => {
         context.commit({
             type: "saveArticleList",
             list: res.data.data.content,
@@ -37,7 +37,7 @@ const actions = {
         if (context.getters.getArticleDetail(id)) {
             return;
         }
-        axios.get("/article/detail/" + id)
+        http.get("/article/detail/" + id)
             .then(res => {
                 context.commit({
                     type: "saveArticleDetail",
@@ -56,7 +56,7 @@ const actions = {
         t = setTimeout(() => {
             // axios.post("/article/save",
             //     'content=' + context.state.editArticle)
-            axios.post("/article/save", {
+            http.post("/article/save", {
                 ...context.state.editArticle
             }).then((res) => {
                 console.log(res);

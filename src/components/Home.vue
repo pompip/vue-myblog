@@ -1,7 +1,7 @@
 <template>
     <div class="detail">
         <div class="item" v-for="(item, index) in list" v-bind:key="index">
-            <HomeItem  v-bind:item="item">{{item}}</HomeItem>
+            <HomeItem  v-bind:item="item" />
         </div>
         <Button class="item action" v-on:click="moreAction">获取更多</Button>
     </div>
@@ -34,7 +34,11 @@
             }
         },
         methods: {
-            ...mapActions("Article", ["refreshArticleList", "loadMoreArticleList"]),
+            // ...mapActions("Article", ["refreshArticleList", "loadMoreArticleList"]),
+            ...mapActions({
+                refreshArticleList:"Article/refreshArticleList",
+                loadMoreArticleList:"Article/loadMoreArticleList"
+            }),
             moreAction: function () {
                 this.loadMoreArticleList();
             },

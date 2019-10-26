@@ -4,13 +4,18 @@
       <div class="title">我的博客</div>
     </router-link>
     <div class="space"></div>
-
-    <router-link to="/edit/new">
+    <router-link to="/">
+      <Button>首页</Button>
+    </router-link>
+    <router-link to="/fav">
+      <Button>收藏夹</Button>
+    </router-link>
+    <router-link v-if="isLogin" to="/edit/new">
       <Button>编辑</Button>
     </router-link>
-    <!-- <router-link to="/about">
+    <router-link to="/about">
       <Button >关于</Button>
-    </router-link>-->
+    </router-link>
     <Button v-if="isLogin" v-on:click="logout">退出</Button>
     <router-link to="/login" v-else>
       <Button>登录</Button>
@@ -20,13 +25,13 @@
 
 <script>
 import { Button } from "@/ui";
-import { mapGetters,mapMutations,mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
   components: { Button },
   created() {
-    if(this.isLogin){
-        this.refreshToken()
+    if (this.isLogin) {
+      this.refreshToken();
     }
   },
   data() {
@@ -40,10 +45,10 @@ export default {
   methods: {
     ...mapMutations(["removeToken"]),
     ...mapActions(["refreshToken"]),
-    logout(){
-      this.removeToken()
+    logout() {
+      this.removeToken();
     }
-  },
+  }
 };
 </script>
 

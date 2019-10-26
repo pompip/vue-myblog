@@ -9,7 +9,7 @@ export default {
         }
     },
     props:{fav:Object},
-    mounted:{
+    mounted:()=>{
         
     }
 }

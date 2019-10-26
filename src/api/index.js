@@ -1,18 +1,31 @@
-import axios from 'axios'
+import http from './Http'
 
-const getTodoList = ()=>{
-   return axios.get("/getTodoList")
+function get(url, doSuccess) {
+    http.get(url).then(result => {
+        doSuccess(result.data.data);
+    }).catch(err => {
+        console.log(err)
+    });
 }
-const getCompliteList =()=>{
-    return axios.get("url")
-    .then(res => {
-        console.log(res)
-    })
-    .catch(err => {
-        console.error(err); 
-    })
+
+function post(url,data,doSuccess) {
+    http.post(url,data).then(result => {
+        doSuccess(result.data.data);
+    }).catch(err => {
+        console.log(err)
+    });
 }
-export default{
-    getTodoList,
-    getCompliteList
+
+const getFavList = (doSuccess) => {
+    get("/fav/all", doSuccess)
 }
+
+const saveFav =(data,doSuccess)=>{
+    post("/fav/add",data,doSuccess)
+}
+
+
+export {
+    getFavList,saveFav
+}
+export default http;

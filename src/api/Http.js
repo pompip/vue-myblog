@@ -4,11 +4,11 @@ import store from '../store/index'
 
 import baseUrl from '@/globle'
 
-const a = axios.create({
+const http = axios.create({
     baseURL: baseUrl,
     timeout: 5000
 });
-a.interceptors.request.use(
+http.interceptors.request.use(
     function (config) {
         let t = store.state.Login.token;
         if (t) {
@@ -19,4 +19,4 @@ a.interceptors.request.use(
         return config;
     }
 )
-export default a;
+export default http;

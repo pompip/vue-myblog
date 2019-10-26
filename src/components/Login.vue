@@ -4,7 +4,7 @@
 
             <span class="login-title">登录</span>
 
-            <form class="login-content" method="post" v-on:submit.prevent="myLogin()">
+            <form class="login-content"  v-on:submit.prevent="myLogin()">
                 <label class="input-wrapper">
                     <input name="username" class="input" type="text" placeholder="用户名" v-model="username"/>
                 </label>
