@@ -1,7 +1,6 @@
-import { getFavList,saveFav } from '@/api'
+import { getFavList,saveFav,delFav } from '@/api'
 const state = {
-    favList: [{ title: "百度", url: "http://baidu.com", icon: "http://baidu.com/favicon.ico" },
-    { title: "腾讯", url: "http://www.tencent.com", icon: "http://www.tencent.com/favicon.ico" }]
+    favList: []
 };
 
 const getters = {
@@ -11,7 +10,6 @@ const getters = {
 const actions = {
     getList: (context) => {
         getFavList(reslut => {
-            console.log(reslut)
             context.commit('modifyFavlist',reslut)
         })
     },
@@ -22,6 +20,13 @@ const actions = {
             console.log(result)
             context.commit("modifyFavlist",result)
         })
+    },
+    delete:(context,payload)=>{
+        context.commit("delete",payload)
+        delFav(payload.id,result=>{
+            console.log(result)
+  
+        })
     }
 
 };
@@ -29,6 +34,15 @@ const actions = {
 const mutations = {
     modifyFavlist: (state,payload) => {
         state.favList = [...payload instanceof Array ?payload:[payload]  ,...state.favList]
+    },
+    delete:(state,payload)=>{
+        let arr =[]
+        state.favList.forEach(element => {
+            if(element.id!=payload.id){
+                arr.push(element)
+            }
+        });
+        state.favList=arr;
     }
 };
 
