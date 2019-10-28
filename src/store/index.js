@@ -4,6 +4,7 @@ import TodoList from './modules/TodoList'
 import Article from './modules/Article'
 import Login from './modules/Login'
 import Fav from './modules/Fav'
+import Layer from './modules/Layer'
 
 Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
@@ -12,7 +13,8 @@ const store =  new Vuex.Store({
         TodoList,
         Article,
         Login,
-        Fav
+        Fav,
+        Layer
     },
     strict: debug,
     // plugins: debug ? [createLogger()] : []

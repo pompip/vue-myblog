@@ -6,17 +6,15 @@
       <button type="submit">SAVE</button>
     </form>
     <div class="category-box">
-      <div v-for="(item, key) in favDict" :key="key" class="category-item">
-        <h3>默认</h3>
-        <div v-for="(item,index) in favDict[key]" v-bind:key="index">
-          <FavItem v-bind:fav="item" />
-        </div>
-      </div>
+        <FavCategory v-for="(item, key) in favDict" :key="key" class="category-item">
+            <FavItem v-for="(item,index) in favDict[key]" v-bind:key="index" v-bind:fav="item" />
+        </FavCategory>
     </div>
   </div>
 </template>
 <script>
 import FavItem from "./FavItem";
+import FavCategory from "./FavCategory";
 import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   created() {
@@ -29,7 +27,8 @@ export default {
     };
   },
   components: {
-    FavItem
+    FavItem,
+    FavCategory
   },
   computed: {
     ...mapState({
@@ -58,13 +57,13 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items:stretch;
+  align-items: stretch;
   padding: 10px;
   height: auto;
 }
 .category-item {
-    border: 1px solid #dcdcdc;
-    margin: 10px;
+  border: 1px solid #dcdcdc;
+  margin: 10px;
   box-sizing: border-box;
   break-inside: avoid;
   padding: 10px;

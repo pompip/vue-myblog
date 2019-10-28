@@ -13,9 +13,9 @@
     <router-link v-if="isLogin" to="/edit/new">
       <Button>编辑</Button>
     </router-link>
-    <router-link to="/about">
-      <Button >关于</Button>
-    </router-link>
+    <!-- <router-link to="/about"> -->
+      <Button @click="test11()">关于</Button>
+    <!-- </router-link> -->
     <Button v-if="isLogin" v-on:click="logout">退出</Button>
     <router-link to="/login" v-else>
       <Button>登录</Button>
@@ -47,6 +47,11 @@ export default {
     ...mapActions(["refreshToken"]),
     logout() {
       this.removeToken();
+
+    },
+    test11(){
+      this.hello2()
+      this.show()
     }
   }
 };
