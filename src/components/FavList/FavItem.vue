@@ -2,13 +2,12 @@
   <div class="FavItem">
     <img :src="icon" class="FavImg" />
     <span class="FavTitle">{{fav.title}}</span>
-    <span class="FavUrl">{{fav.url}}</span>
-    <button v-on:click="deleteFav(fav)">DEL</button>
+    <a class="FavUrl" :href="fav.url" target="_Blank">{{fav.url}}</a>
+    <button v-show="isLogin" v-on:click="deleteFav(fav)">DEL</button>
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
-import http from '@/api'
+import { mapActions, mapGetters } from "vuex";
 export default {
   data: () => {
     return {icon:"/favicon.ico"};
@@ -17,8 +16,10 @@ export default {
   components:{
  
   },
-  mounted(){
-      
+  computed:{
+    ...mapGetters({
+      isLogin:"isLogin"
+    })
   },
   methods: {
     ...mapActions({

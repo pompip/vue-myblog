@@ -4,7 +4,18 @@ const state = {
 };
 
 const getters = {
-
+    favDict :(state)=>{
+        let dict ={}
+        state.favList.forEach(e=>{
+            let key = e.categoryId;
+            if (key in dict){
+                dict[key].push(e)
+            }else{
+                dict[key] =[e]
+            }
+        })
+        return dict;
+    }
 };
 
 const actions = {
