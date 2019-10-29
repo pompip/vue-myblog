@@ -3,7 +3,9 @@
         <Nav class="header"/>
         <div class="container">
             <router-view class="main"/>
+            <div>
             <Side class="side"/>
+            </div>
         </div>
         <Footer class="footer"/>
         <Layer />
@@ -36,9 +38,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         min-height: 100vh;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -47,6 +46,7 @@
     .header {
         position: fixed;
         width: 100vw;
+        z-index: 2;
     }
 
     .container {

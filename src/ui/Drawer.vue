@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg">
     <button @click="openDrawer()">hello world</button>
     <div class="box" v-show="show">
       <slot></slot>
@@ -14,6 +14,10 @@
   padding: 10px;
   margin: 10px;
   border: 1px solid #dcdcdc;
+  background:#dcdcdc
+}
+.bg{
+    background:#dcdcdc
 }
 </style>
 <script>

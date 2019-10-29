@@ -4,22 +4,22 @@
       <div class="title">我的博客</div>
     </router-link>
     <div class="space"></div>
-    <Drawer >
+    <Drawer>
     <router-link to="/">
-      <span>首页</span>
+      <h4>首页</h4>
     </router-link>
     <router-link to="/fav">
-      <span>收藏夹</span>
+      <h4>收藏</h4>
     </router-link>
     <router-link v-if="isLogin" to="/edit/new">
-      <span>编辑</span>
+      <h4>编辑</h4>
     </router-link>
     <!-- <router-link to="/about"> -->
-      <span @click="test11()">关于</span>
+      <h4 @click="test11()">关于</h4>
     <!-- </router-link> -->
-    <span v-if="isLogin" v-on:click="logout">退出</span>
+    <h4 v-if="isLogin" v-on:click="logout">退出</h4>
     <router-link to="/login" v-else>
-      <span>登录</span>
+      <h4>登录</h4>
     </router-link>
     </Drawer>
   </header>
@@ -71,10 +71,12 @@ export default {
 .space {
   flex-grow: 1;
 }
-.title {
+.title,h4 {
   display: inline-flex;
   font-size: 20px;
   font-weight: bold;
   color: #ffffff;
 }
+
+
 </style>
