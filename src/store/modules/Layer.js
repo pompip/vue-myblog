@@ -1,6 +1,6 @@
 
 const state = {
-    showLayer:true
+    showLayer:false
 };
 
 const getters = {

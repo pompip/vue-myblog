@@ -4,31 +4,33 @@
       <div class="title">我的博客</div>
     </router-link>
     <div class="space"></div>
+    <Drawer >
     <router-link to="/">
-      <Button>首页</Button>
+      <span>首页</span>
     </router-link>
     <router-link to="/fav">
-      <Button>收藏夹</Button>
+      <span>收藏夹</span>
     </router-link>
     <router-link v-if="isLogin" to="/edit/new">
-      <Button>编辑</Button>
+      <span>编辑</span>
     </router-link>
     <!-- <router-link to="/about"> -->
-      <Button @click="test11()">关于</Button>
+      <span @click="test11()">关于</span>
     <!-- </router-link> -->
-    <Button v-if="isLogin" v-on:click="logout">退出</Button>
+    <span v-if="isLogin" v-on:click="logout">退出</span>
     <router-link to="/login" v-else>
-      <Button>登录</Button>
+      <span>登录</span>
     </router-link>
+    </Drawer>
   </header>
 </template>
 
 <script>
-import { Button } from "@/ui";
+import { Button,Drawer } from "@/ui";
 import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
-  components: { Button },
+  components: { Button,Drawer },
   created() {
     if (this.isLogin) {
       this.refreshToken();
@@ -36,7 +38,7 @@ export default {
   },
   data() {
     return {
-      // hello:false
+      show:false
     };
   },
   computed: {
@@ -52,6 +54,9 @@ export default {
     test11(){
       this.hello2()
       this.show()
+    },
+    openDrawer(){
+      this.show = !this.show;
     }
   }
 };
