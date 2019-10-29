@@ -1,10 +1,10 @@
 
 const state = {
-    showLayer:false
+    showing:false
 };
 
 const getters = {
-    showLayer:(state)=>state.showLayer
+    layerShowing:(state)=>state.showing
 };
 
 const actions = {
@@ -13,9 +13,9 @@ const actions = {
 };
 
 const mutations = {
-    show(state){
+    showLayer(state){
         console.log('hello 3')
-        state.showLayer =! state.showLayer;
+        state.showing =! state.showing;
     }
 };
 

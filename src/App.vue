@@ -6,7 +6,7 @@
             <Side class="side"/>
         </div>
         <Footer class="footer"/>
-        <Layer v-if="showLayer" class="layer"/>
+        <Layer />
     </div>
 </template>
 
@@ -15,7 +15,7 @@
     import Nav from "./components/Nav.vue";
     import Footer from "./components/Footer";
     import Layer from "./components/Layer"
-    import {mapGetters} from 'vuex'
+
 
     export default {
         name: "app",
@@ -25,9 +25,7 @@
             Footer,
             Layer
         },
-        computed:{
-            ...mapGetters(["showLayer"])
-        }
+
         
     };
 </script>
@@ -78,13 +76,7 @@
         right: 0;
     }
 
-    .layer{
-        width:100vw;
-        height: 100vw;
-        position:fixed;
-        background-color: #201e1c1e;
-        pointer-events: none;
-    }
+
 </style>
 <style>
     a:link {

@@ -5,9 +5,8 @@ import store from './store'
 
 Vue.config.productionTip = false
 
- Vue.prototype.show = () => {
-  console.log("hello1");
-    store.commit("show");
+ Vue.prototype.showLayer = () => {
+    store.commit("showLayer");
  }
 
 

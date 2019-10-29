@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import { Button,Drawer } from "@/ui";
+import { Drawer } from "@/ui";
 import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
-  components: { Button,Drawer },
+  components: { Drawer },
   created() {
     if (this.isLogin) {
       this.refreshToken();
@@ -52,8 +52,7 @@ export default {
 
     },
     test11(){
-      this.hello2()
-      this.show()
+      this.showLayer()
     },
     openDrawer(){
       this.show = !this.show;
