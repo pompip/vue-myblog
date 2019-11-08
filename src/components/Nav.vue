@@ -1,10 +1,10 @@
 <template>
   <header class="nav">
     <router-link to="/">
-      <div class="title">我的博客</div>
+      <h2 class="title">我的博客</h2>
     </router-link>
     <div class="space"></div>
-    <Drawer>
+    <Drawer v-bind:title="'设置'">
     <router-link to="/">
       <h4>首页</h4>
     </router-link>
@@ -71,12 +71,14 @@ export default {
 .space {
   flex-grow: 1;
 }
-.title,h4 {
+.title {
   display: inline-flex;
-  font-size: 20px;
-  font-weight: bold;
   color: #ffffff;
 }
+
+  h4{
+    color: #ffffff;
+  }
 
 
 </style>

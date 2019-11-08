@@ -4,6 +4,7 @@
       <input v-model="inputUrl" />
       <input v-model="inputId" placeholder="categoryId" />
       <button type="submit">SAVE</button>
+        <InputSelector/>
     </form>
     <div class="category-box">
         <FavCategory v-for="(item, key) in favDict" :key="key" class="category-item">
@@ -15,6 +16,7 @@
 <script>
 import FavItem from "./FavItem";
 import FavCategory from "./FavCategory";
+import {InputSelector} from '@/ui'
 import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   created() {
@@ -28,7 +30,7 @@ export default {
   },
   components: {
     FavItem,
-    FavCategory
+    FavCategory,InputSelector
   },
   computed: {
     ...mapState({
@@ -44,7 +46,7 @@ export default {
       saveFav: "Fav/save"
     }),
     save() {
-      if (this.inputUrl.substr(0, 4) == "http") {
+      if (this.inputUrl.substr(0, 4) === "http") {
         this.saveFav({ url: this.inputUrl, categoryId: this.inputId });
       }
     }

@@ -3,9 +3,7 @@
         <Nav class="header"/>
         <div class="container">
             <router-view class="main"/>
-            <div>
             <Side class="side"/>
-            </div>
         </div>
         <Footer class="footer"/>
         <Layer />
