@@ -60,8 +60,8 @@ export default {
 <style scoped>
 .box {
   max-width: 100vw;
-  margin: 10px 20px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   font-size: 14px;
   color: #000;
 }
